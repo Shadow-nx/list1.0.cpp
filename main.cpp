@@ -30,8 +30,8 @@ int main(int argc,char *argv[]) {
 	int *znach=new int[0];
 
 	if(argc==2) {
-		for(int i=0; i<5; i++)
-			znach[z]=0;
+		for(int i=0; i<z; i++)
+			znach[i]=0;
 	}
 
 	if(argc>2)	{
