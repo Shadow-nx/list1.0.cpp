@@ -7,17 +7,30 @@ struct Node {
 	int data;
 	Node *next;
 };
+void show_list(Node *curr) {
+	if(curr != nullptr) {
+		do {
+			cout<<curr->data;
+			if(curr->next!=nullptr)
+				cout<<" -> ";
+			curr=curr->next;
+		} while (curr!=nullptr);
+		cout<<endl;
+	} else
+		cerr<<"list is empty"<<endl;
+}
 
 
 int main(int argc,char *argv[]) {
-	char *op=new char[0];
-	op=argv[argc-1];
+	char *op=new char[strlen(argv[argc-1])];
+
 	int z=0;
 	if(argc>2)
 		for(int i=1; i<argc; i++) {
 			z++;
 		}
 	else if(argc==2) {
+		op=argv[argc-1];
 		for(int i=0; i<strlen(op); i++) {
 			if(op[i]>='0'&& op[i]<='9')
 				;
@@ -27,7 +40,7 @@ int main(int argc,char *argv[]) {
 	}
 
 	int y=0;
-	int *znach=new int[0];
+	int *znach=new int[z];
 
 	if(argc==2) {
 		for(int i=0; i<z; i++)
@@ -75,16 +88,7 @@ int main(int argc,char *argv[]) {
 		Node *curr=first;
 		switch(choice) {
 			case 1:
-				if(curr != nullptr && argc>1) {
-					do {
-						cout<<curr->data;
-						if(curr->next!=nullptr)
-							cout<<" -> ";
-						curr=curr->next;
-					} while (curr!=nullptr);
-					cout<<endl;
-				} else
-					cerr<<"list is empty"<<endl;
+				show_list(curr);
 				break;
 			case 2:
 				break;
